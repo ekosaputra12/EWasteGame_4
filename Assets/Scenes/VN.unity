@@ -516,6 +516,7 @@ GameObject:
   - component: {fileID: 845153831}
   - component: {fileID: 845153833}
   - component: {fileID: 845153832}
+  - component: {fileID: 845153834}
   m_Layer: 5
   m_Name: BottomBar
   m_TagString: Untagged
@@ -582,6 +583,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845153830}
   m_CullTransparentMesh: 1
+--- !u!114 &845153834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845153830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b411d8f9b4d66a44fb78d19caddae283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barText: {fileID: 1333681307}
+  personNameText: {fileID: 1863575296}
+  currentScene: {fileID: 11400000, guid: 9f1139ab52e38024aa2aeac06cf69b76, type: 2}
 --- !u!1 &1333681305
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +655,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hello There
+  m_text: kamu mau kerja disini engga?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -891,7 +907,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kenang
+  m_text: we
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

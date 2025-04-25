@@ -21,6 +21,8 @@ public class BottomBarController : MonoBehaviour
     void Start()
     {
         StartCoroutine(TypeText(currentScene.sentences[++sentenceIndex].text));
+        personNameText.text = currentScene.sentences[sentenceIndex].speaker.speakerName;
+        personNameText.color = currentScene.sentences[sentenceIndex].speaker.textColor;
     }
 
     private IEnumerator TypeText(string text)

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   sentences:
-  - text: Hello Word
+  - text: Aku kerja disini yaaa
     speaker: {fileID: 11400000, guid: 5a10aaa76f8a82c4e9881f848b863c0f, type: 2}
-  - text: Hello George
-    speaker: {fileID: 11400000, guid: 5a10aaa76f8a82c4e9881f848b863c0f, type: 2}
+  - text: Hello george
+    speaker: {fileID: 11400000, guid: 49e59cde3f83ac842807ba9f4b4b2965, type: 2}
   background: {fileID: 21300000, guid: 0ef0cb7db44af634194702c988a5e6f6, type: 3}
   nextScene: {fileID: 0}
