@@ -9,37 +9,66 @@ public class BottomBarController : MonoBehaviour
     public TextMeshProUGUI personNameText;
 
     private int sentenceIndex = -1;
-    public StoryScene currentScene;
+    public StoryScene storyScene;
+    private StoryScene currentScene;
     private State state = State.COMPLETED;
+    private Coroutine typingCoroutine;
 
     private enum State
     {
         PLAYING, COMPLETED
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void PlayScene(StoryScene scene)
     {
-        StartCoroutine(TypeText(currentScene.sentences[++sentenceIndex].text));
-        personNameText.text = currentScene.sentences[sentenceIndex].speaker.speakerName;
-        personNameText.color = currentScene.sentences[sentenceIndex].speaker.textColor;
+        currentScene = scene;
+        sentenceIndex = -1;
+        PlayNextSentence();
     }
 
-    private IEnumerator TypeText(string text)
+    public void PlayNextSentence()
+    {
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+
+        sentenceIndex++;
+
+        if (sentenceIndex >= currentScene.sentences.Count)
+        {
+            state = State.COMPLETED;
+            return;
+        }
+
+        var sentence = currentScene.sentences[sentenceIndex];
+        typingCoroutine = StartCoroutine(TypeText(sentence.text));
+
+        personNameText.text = sentence.speaker.speakerName;
+        personNameText.color = sentence.speaker.textColor;
+    }
+
+    public bool IsCompleted()
+    {
+        return state == State.COMPLETED;
+    }
+
+    public bool IsLastSentence()
+    {
+        return sentenceIndex + 1 == currentScene.sentences.Count;
+    }
+
+    private IEnumerator TypeText(string fullText)
     {
         barText.text = "";
         state = State.PLAYING;
-        int wordIndex = 0;
 
-        while (state != State.COMPLETED)
+        for (int i = 0; i < fullText.Length; i++)
         {
-            barText.text += text[wordIndex];
+            barText.text += fullText[i];
             yield return new WaitForSeconds(0.05f);
-            if(++wordIndex == text.Length)
-            {
-                state = State.COMPLETED;
-                break;
-            }
         }
+
+        state = State.COMPLETED;
     }
 }
