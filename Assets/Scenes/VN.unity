@@ -543,7 +543,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentScene: {fileID: 11400000, guid: 9f1139ab52e38024aa2aeac06cf69b76, type: 2}
   bottomBar: {fileID: 845153834}
-  backgroundController: {fileID: 1370998840}
 --- !u!114 &439604807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,7 +557,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentScene: {fileID: 11400000, guid: 9f1139ab52e38024aa2aeac06cf69b76, type: 2}
   bottomBar: {fileID: 845153834}
-  backgroundController: {fileID: 1370998840}
 --- !u!1 &845153830
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,7 +912,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1370998838}
   - component: {fileID: 1370998839}
-  - component: {fileID: 1370998840}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -964,22 +961,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1370998840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370998837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54d155f10ed10ca49a2f6ff6a110bb64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSwitched: 0
-  background1: {fileID: 52797474}
-  background2: {fileID: 1803963582}
-  animator: {fileID: 1370998839}
 --- !u!1 &1803963580
 GameObject:
   m_ObjectHideFlags: 0
