@@ -8,8 +8,7 @@ public class BottomBarController : MonoBehaviour
     public TextMeshProUGUI barText;
     public TextMeshProUGUI personNameText;
 
-    private int sentenceIndex = -1;
-    public StoryScene storyScene;
+    private int sentenceIndex = 0;
     private StoryScene currentScene;
     private State state = State.COMPLETED;
     private Coroutine typingCoroutine;
@@ -21,8 +20,12 @@ public class BottomBarController : MonoBehaviour
 
     public void PlayScene(StoryScene scene)
     {
-        currentScene = scene;
-        sentenceIndex = -1;
+        if (currentScene != scene)
+        {
+            currentScene = scene;
+            sentenceIndex = 0;
+        }
+
         PlayNextSentence();
     }
 
@@ -32,8 +35,6 @@ public class BottomBarController : MonoBehaviour
         {
             StopCoroutine(typingCoroutine);
         }
-
-        sentenceIndex++;
 
         if (sentenceIndex >= currentScene.sentences.Count)
         {
@@ -46,6 +47,8 @@ public class BottomBarController : MonoBehaviour
 
         personNameText.text = sentence.speaker.speakerName;
         personNameText.color = sentence.speaker.textColor;
+
+        sentenceIndex++; // Pindah ke kalimat berikutnya setelah ditampilkan
     }
 
     public bool IsCompleted()
@@ -55,7 +58,7 @@ public class BottomBarController : MonoBehaviour
 
     public bool IsLastSentence()
     {
-        return sentenceIndex + 1 == currentScene.sentences.Count;
+        return sentenceIndex >= currentScene.sentences.Count;
     }
 
     private IEnumerator TypeText(string fullText)

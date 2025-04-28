@@ -7,11 +7,13 @@ public class GameController : MonoBehaviour
 {
     public StoryScene currentScene;
     public BottomBarController bottomBar;
+    public BackgroundController backgroundController;
 
     
     void Start()
     {
         bottomBar.PlayScene(currentScene);
+        backgroundController.SetImage(currentScene.background);
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class GameController : MonoBehaviour
                     Debug.Log("Ini adalah kalimat terakhir.");
                     currentScene = currentScene.nextScene;
                     bottomBar.PlayScene(currentScene);
+                    backgroundController.SwitchImage(currentScene.background);
                 }
 
                 bottomBar.PlayNextSentence();
